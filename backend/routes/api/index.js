@@ -11,10 +11,6 @@ const usersRouter = require('./users')
 router.use('/session', sessionRouter)
 router.use('/users', usersRouter)
 
-//test api routes
-router.post('/test', function(req, res) {
-    res.json({ requestBody: req.body });
-});
 
 
 
