@@ -56,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
     return { id, username, email }
   };
 
-  User.prototype.validatePassword = funciton (password) {
+  User.prototype.validatePassword = function (password) {
     return bcrypt.compareSync(password, this.hashedPassword.toString())
   };
 
@@ -78,6 +78,15 @@ module.exports = (sequelize, DataTypes) => {
       return await User.scope('currentUser').findByPk(user.id)
     }
   };
-  
+
+  User.signup = async function ({ username, email, password }) {
+    const hashedPassword = bcrypt.hashSync(password);
+    const user = await User.create({
+      username,
+      email,
+      hashedPassword,
+    });
+    return await User.scope('currentUser').findByPk(user.id)
+  }
   return User;
 };
