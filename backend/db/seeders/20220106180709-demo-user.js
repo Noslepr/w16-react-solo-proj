@@ -1,5 +1,5 @@
 'use strict';
-const faker = require('faker');
+// const faker = require('faker');
 const bcrypt = require('bcryptjs');
 
 module.exports = {
@@ -11,14 +11,14 @@ module.exports = {
         hashedPassword: bcrypt.hashSync('password'),
       },
       {
-        email: faker.internet.email(),
+        email: 'fake1@user.io',
         username: 'FakeUser1',
-        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+        hashedPassword: bcrypt.hashSync('fakepass1'),
       },
       {
-        email: faker.internet.email(),
+        email: 'fake2@user.io',
         username: 'FakeUser2',
-        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+        hashedPassword: bcrypt.hashSync('fakepass2'),
       },
     ], {});
   },
