@@ -9,7 +9,7 @@ const usersRouter = require('./users')
 // const { restoreUser, requireAuth } = require('../../utils/auth.js')
 
 router.use('/session', sessionRouter)
-router.use('/uses', usersRouter)
+router.use('/users', usersRouter)
 
 //test api routes
 router.post('/test', function(req, res) {
