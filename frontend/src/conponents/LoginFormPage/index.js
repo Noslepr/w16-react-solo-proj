@@ -6,13 +6,17 @@ import { login } from '../../store/session'
 import './LoginForm.css';
 
 const LoginFormPage = () => {
-    const sessionUser = useSelector((state) => state.user)
+    const sessionUser = useSelector((state) => state.session.user)
     const dispatch = useDispatch()
     const history = useHistory()
 
     const [credential, setCredential] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState([]);
+
+    if(sessionUser) {
+        return <Redirect to='/'/>
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -30,22 +34,6 @@ const LoginFormPage = () => {
             history.push('/')
         }
     }
-
-
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault()
-
-    //     const payload = { credential, password }
-    //     const res = await dispatch(login(payload))
-    //         .catch(async (res) => {
-    //             const data = await res.json()
-    //             console.log('flag',data.errors)
-    //             console.log('res.errors:', data.errors)
-    //         })
-    //         console.log('res', res)
-    //         history.push('/')
-    // }
 
     return (
         <form className='loginForm' onSubmit={handleSubmit}>
