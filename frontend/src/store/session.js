@@ -25,14 +25,17 @@ export const login = (user) => async dispatch => {
 
     const data = await response.json()
     dispatch(setUser(data))
-    return data
+    return response
 }
 
 const initialState = { user: null}
 const sessionReducer = (state = initialState, action) => {
+    let newState
     switch (action.type) {
         case SET_USER:
-            return {user: action.user}
+            newState = {...state}
+            newState.user = action.user
+            return newState
         case REMOVE_USER:
             return {user: null}
         default:

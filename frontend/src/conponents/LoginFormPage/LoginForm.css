@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F0F2F5;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    height: 300px;
+    width: 400px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%)
+}
+
+
+.formField {
+    font-size: 20px;
+    margin: 10px;
+    height: 30px;
+    border-radius: 6px;
+    border: 1px solid gray;
+    border-color: #dddfe2;
+    background-color: #E8F0FE;
+}
+
+.formField:focus {
+    /* border-color: rgb(255, 60, 60); */
+    border: 1px solid #1877f2
+}
+
+.button {
+    font-size: 20px;
+    color: whitesmoke;
+    border: solid;
+    margin: 10px;
+    height: 40px;
+    border-radius: 6px;
+    background-color: #1877f2;
+}
+
+.button:hover {
+    background-color: #1b65c5;
+    color: white;
+}

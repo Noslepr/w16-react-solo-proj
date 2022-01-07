@@ -3,14 +3,14 @@ import LoginFormPage from './conponents/LoginFormPage';
 
 function App() {
   return (
-    <div>
+    <body>
       <h1>Hello from App</h1>
       <Switch>
         <Route path='/login'>
           <LoginFormPage />
         </Route>
       </Switch>
-    </div>
+    </body>
 
   );
 }
