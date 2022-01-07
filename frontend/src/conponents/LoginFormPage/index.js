@@ -49,6 +49,7 @@ const LoginFormPage = () => {
 
     return (
         <form className='loginForm' onSubmit={handleSubmit}>
+            <div className='loginHeader'>Log in to Flicker</div>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
