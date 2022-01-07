@@ -23,16 +23,12 @@ export const login = (user) => async dispatch => {
         body: JSON.stringify({ credential, password})
     })
 
-    if (response.ok) {
-        const user = await response.json()
-        dispatch(setUser(user))
-    }
+    const data = await response.json()
+    dispatch(setUser(data))
+    return data
 }
 
-
-
 const initialState = { user: null}
-
 const sessionReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER:
