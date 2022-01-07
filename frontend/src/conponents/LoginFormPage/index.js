@@ -6,17 +6,15 @@ import { login } from '../../store/session'
 import './LoginForm.css';
 
 const LoginFormPage = () => {
-    const sessionUser = useSelector((state) => state.session.user)
     const dispatch = useDispatch()
     const history = useHistory()
+    const sessionUser = useSelector((state) => state.session.user)
 
     const [credential, setCredential] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState([]);
 
-    if(sessionUser) {
-        return <Redirect to='/'/>
-    }
+    if(sessionUser) return <Redirect to='/'/>
 
     const handleSubmit = async (e) => {
         e.preventDefault();
