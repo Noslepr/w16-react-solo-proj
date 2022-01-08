@@ -1,5 +1,7 @@
 body {
     background-color: #F0F2F5;
+    background-image: url('../../../public/images/nature.jpg');
+    background-size: cover;
 }
 
 #root {
