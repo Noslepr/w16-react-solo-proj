@@ -32,6 +32,9 @@ const SignupFormPage = () => {
     }
     return (
         <form className='signupForm'onSubmit={handleSubmit}>
+          <div>
+            Signup for Flicker
+          </div>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
