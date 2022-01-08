@@ -20,7 +20,6 @@ const LoginForm = () => {
         .catch(async (res) => {
             const data = await res.json();
             if (data && data.errors) {
-                console.log('in error block')
                 setErrors(data.errors);
             }
         });
