@@ -33,7 +33,7 @@ const SignupForm = () => {
     return (
         <form className='signupForm'onSubmit={handleSubmit}>
           <div>
-            Signup for Flicker
+            Signup for Rock Flickr
           </div>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}

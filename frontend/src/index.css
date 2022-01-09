@@ -1,1 +1,6 @@
 /* TODO Add site wide styles */
+body {
+    background-color: #F0F2F5;
+    background-image: url('images/rakshith-hatwar-XNfyaABCLJk-unsplash.jpg');
+    background-size: cover;
+}

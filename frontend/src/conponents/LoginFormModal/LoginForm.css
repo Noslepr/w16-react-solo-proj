@@ -1,8 +1,8 @@
-body {
+/* body {
     background-color: #F0F2F5;
     background-image: url('../../../public/images/rakshith-hatwar-XNfyaABCLJk-unsplash.jpg');
     background-size: cover;
-}
+} */
 
 #root {
     display: flex;
@@ -23,15 +23,12 @@ body {
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%)
 }
 
-.login-btn {
-    background-color: #212124;
-    color: white;
-}
 
 .formField {
     font-size: 20px;
     margin: 10px;
     height: 30px;
+    width: 250px;
     border-radius: 6px;
     border: 1px solid gray;
     border-color: #dddfe2;
@@ -49,6 +46,7 @@ body {
     border: solid;
     margin: 10px;
     height: 40px;
+    width: 150px;
     border-radius: 6px;
     background-color: #128fdc;
 }

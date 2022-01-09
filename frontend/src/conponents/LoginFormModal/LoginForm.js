@@ -31,7 +31,7 @@ const LoginForm = () => {
 
     return (
         <form className='loginForm' onSubmit={handleSubmit}>
-            <div className='loginHeader'>Log in to Flicker</div>
+            <div className='loginHeader'>Log in to Rock Flickr</div>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
@@ -51,7 +51,7 @@ const LoginForm = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 value={ password }
             />
-            <button className='button'type='submit'>Submit</button>
+            <button className='button'type='submit'>Log in</button>
         </form>
     )
 }
