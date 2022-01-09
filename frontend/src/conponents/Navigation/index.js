@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 import ProfileButton from "./ProfileButton"
 import LoginFormModal from '../LoginFormModal';
+import SignupFormModal from '../SignupFormPage';
 import './Navigation.css';
 
 const Navigation = (isLoaded) => {
@@ -21,7 +22,7 @@ const Navigation = (isLoaded) => {
                     <LoginFormModal />
                 {/* </li> */}
                 {/* <li className="nav-bar-right"> */}
-                    <NavLink to="/signup">Sign Up</NavLink>
+                    <SignupFormModal />
                 {/* </li> */}
             </>
         );
