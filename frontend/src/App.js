@@ -6,6 +6,7 @@ import { restoreUser } from "./store/session";
 import LoginFormPage from './conponents/LoginFormModal';
 import SignupFormPage from "./conponents/SignupFormPage";
 import Navigation from "./conponents/Navigation";
+import Explore from "./conponents/Explore";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,16 +19,9 @@ function App() {
   return (
     <>
       <Navigation idLoaded={isLoaded}/>
-      {/*  {isLoaded && (
-        <Switch>
-          <Route path='/login'>
-            <LoginFormPage />
-          </Route>
-          <Route path='/signup'>
-            <SignupFormPage />
-          </Route>
-        </Switch>
-      )}*/}
+        <Route exact path='/'>
+          <Explore />
+        </Route>
     </>
 
   );
