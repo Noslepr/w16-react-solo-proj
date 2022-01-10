@@ -29,7 +29,7 @@ const Navigation = (isLoaded) => {
             <div className="nav-left">
                 {/* <img id='logo'src={logo}></img> */}
                 <NavLink exact to="/">
-                    <img id='logo'src={logo}></img>
+                    <img className='logo'src={logo}></img>
                     Rock Flickr
                 </NavLink>
             </div>

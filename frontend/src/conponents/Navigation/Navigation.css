@@ -25,6 +25,7 @@ nav {
     color: white;
     margin-right: 15px;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .signin-btn {
@@ -33,6 +34,7 @@ nav {
     height: 30px;
     border-radius: 6px;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .nav-left {
@@ -42,7 +44,7 @@ nav {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
 }
 
-#logo {
+.logo {
     height: 30px;
     width: 30px;
     margin-right: 10px;
