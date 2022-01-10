@@ -63,5 +63,7 @@
 }
 
 .errors {
+    list-style-type: circle;
     color: red;
+    width: 250px;
 }

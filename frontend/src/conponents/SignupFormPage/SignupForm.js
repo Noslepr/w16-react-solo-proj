@@ -38,7 +38,7 @@ const SignupForm = () => {
             Signup for Rock Flickr
           </div>
           <ul>
-            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            {errors.map((error, idx) => <li className='errors'key={idx}>{error}</li>)}
           </ul>
             <input
               className='formField'
