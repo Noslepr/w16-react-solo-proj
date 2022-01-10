@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { login } from '../../store/session'
 import { Modal } from '../../context/Modal'
@@ -32,17 +32,19 @@ const LoginForm = ({ showModal, setShowModal }) => {
             history.push('/')
         }
     }
-useEffect(() => {
-    console.log('showModal:', showModal)
-    console.log('showSignupModal:', showSignupModal)
-}, [showModal, showSignupModal])
-    console.log()
+
+    useEffect(() => {
+        // console.log('showModal:', showModal)
+        // console.log('showSignupModal:', showSignupModal)
+    }, [showModal, showSignupModal])
+
     const test1 = () => {
         console.log('test1')
     }
     const test2 = () => {
         console.log('test2')
     }
+
     return (
         <form className='loginForm' onSubmit={handleSubmit}>
             <img className='logo' src={logo} />

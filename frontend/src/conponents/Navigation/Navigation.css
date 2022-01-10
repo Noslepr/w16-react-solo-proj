@@ -27,7 +27,7 @@ nav {
 .login-btn {
     background-color: rgba(0, 0, 0, 0);
     color: white;
-    margin-right: 15px;
+    margin: 0px 15px;
     font-size: 15px;
     cursor: pointer;
 }
@@ -69,9 +69,16 @@ nav {
     right: 50px;
     list-style-type: none;
     border: 1px solid black;
+    border-radius: 6px;
     background-color: white;
 }
 
 .profile-list {
     padding: 5px 10px;
+}
+
+#logout {
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0);
+    margin-right: 5px;
 }
