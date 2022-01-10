@@ -1,17 +1,21 @@
 import { useHistory } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useDispatch} from 'react-redux'
 
 import { login } from '../../store/session'
+import { Modal } from '../../context/Modal'
+import SignupForm from '../SignupFormPage'
+import logo from '../../images/logo.png'
 import './LoginForm.css';
 
-const LoginForm = () => {
+const LoginForm = ({ showModal, setShowModal }) => {
     const dispatch = useDispatch()
     const history = useHistory()
 
     const [credential, setCredential] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState([]);
+    const [showSignupModal, setShowSignupModal] = useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -28,10 +32,21 @@ const LoginForm = () => {
             history.push('/')
         }
     }
-
+useEffect(() => {
+    console.log('showModal:', showModal)
+    console.log('showSignupModal:', showSignupModal)
+}, [showModal, showSignupModal])
+    console.log()
+    const test1 = () => {
+        console.log('test1')
+    }
+    const test2 = () => {
+        console.log('test2')
+    }
     return (
         <form className='loginForm' onSubmit={handleSubmit}>
-            <div className='loginHeader'>Log in to Flicker</div>
+            <img className='logo' src={logo} />
+            <div className='login-header'>Log in to Rock Flickr</div>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
@@ -51,7 +66,22 @@ const LoginForm = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 value={ password }
             />
-            <button className='button'type='submit'>Submit</button>
+            <button className='button'type='submit'>Log in</button>
+            <div>Not a member?
+                <span
+                    onClick={() => {
+                        // setShowModal(false);
+                        // setShowSignupModal(true)
+                        test1();
+                        test2()
+                    }}
+                >Sign up here</span>
+                {showSignupModal && (
+                    <Modal onClose={() => setShowSignupModal(false)}>
+                        <SignupForm />
+                    </Modal>
+                )}
+            </div>
         </form>
     )
 }

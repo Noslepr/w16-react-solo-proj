@@ -15,13 +15,37 @@ nav {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 30px;
+    height: 44px;
     padding: 10px;
-    background-color: #212124;
+    background-color: rgba(0, 0, 0, 0.35)
 }
 
-.nav-right {
-    display: flex;
-    list-style-type: none;
+.login-btn {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    margin-right: 15px;
+    font-size: 15px;
+    cursor: pointer;
+}
 
+.signin-btn {
+    margin-right: 35px;
+    width: 90px;
+    height: 30px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.nav-left {
+    margin-left: 30px;
+    font-size: 25px;
+    font-weight: 700;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+}
+
+.logo {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
 }

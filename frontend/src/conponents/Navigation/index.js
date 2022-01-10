@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from "./ProfileButton"
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormPage';
+import logo from '../../images/logo.png'
 import './Navigation.css';
 
 const Navigation = (isLoaded) => {
@@ -18,19 +19,19 @@ const Navigation = (isLoaded) => {
     } else {
         sessionLinks = (
             <>
-                {/* <li className="nav-bar-right"> */}
-                    <LoginFormModal />
-                {/* </li> */}
-                {/* <li className="nav-bar-right"> */}
-                    <SignupFormModal />
-                {/* </li> */}
+                <LoginFormModal />
+                <SignupFormModal />
             </>
         );
     }
     return (
         <nav>
             <div className="nav-left">
-                <NavLink exact to="/">Home</NavLink>
+                {/* <img id='logo'src={logo}></img> */}
+                <NavLink exact to="/">
+                    <img className='logo'src={logo}></img>
+                    Rock Flickr
+                </NavLink>
             </div>
             <ul className="nav-right">
                 {isLoaded && sessionLinks}

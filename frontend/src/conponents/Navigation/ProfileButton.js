@@ -23,7 +23,7 @@ const ProfileButton = ({ user }) => {
 
     return (
         <>
-          <button onClick={openMenu}>
+          <button id='profile-btn' onClick={openMenu}>
             <i className="fas fa-user-circle" />
           </button>
           {showMenu && (
