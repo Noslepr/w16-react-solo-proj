@@ -1,7 +1,8 @@
 import React from 'react';
-import { NavLink } from "react-router-dom"
-import { useSelector } from 'react-redux';
+import { NavLink, useHistory } from "react-router-dom"
+import { useSelector, useDispatch } from 'react-redux';
 
+import { login } from '../../store/session'
 import ProfileButton from "./ProfileButton"
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormPage';
@@ -9,8 +10,19 @@ import logo from '../../images/logo.png'
 import './Navigation.css';
 
 const Navigation = (isLoaded) => {
+    const dispatch = useDispatch()
+    const history = useHistory()
     const sessionUser = useSelector(state => state.session.user);
-    
+
+    const demoLogin = async (e) => {
+        console.log('in function')
+        const res = await dispatch(login({ credential:'Demo-lition', password:'password' }))
+
+        if (res.ok) {
+            history.push('/')
+        }
+    }
+
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
@@ -21,6 +33,7 @@ const Navigation = (isLoaded) => {
             <>
                 <LoginFormModal />
                 <SignupFormModal />
+                <button className='login-btn' onClick={demoLogin}>Demo Login</button>
             </>
         );
     }
