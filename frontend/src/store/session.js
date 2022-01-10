@@ -24,7 +24,7 @@ export const signup = (user) => async dispatch => {
     })
 
     const data = await res.json();
-    dispatch(setUser(data));
+    dispatch(setUser(data.user));
     return res
 }
 
