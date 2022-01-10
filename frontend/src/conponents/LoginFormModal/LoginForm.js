@@ -48,7 +48,7 @@ useEffect(() => {
             <img className='logo' src={logo} />
             <div className='login-header'>Log in to Rock Flickr</div>
             <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                {errors.map((error, idx) => <li className='errors'key={idx}>{error}</li>)}
             </ul>
             <input
                 className='formField'
