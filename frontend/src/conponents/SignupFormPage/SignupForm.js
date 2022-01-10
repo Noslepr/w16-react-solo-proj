@@ -2,6 +2,7 @@ import { Redirect, useHistory } from 'react-router-dom'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import logo from '../../images/logo.png'
 import { signup } from '../../store/session'
 import './SignupForm.css';
 
@@ -32,7 +33,8 @@ const SignupForm = () => {
     }
     return (
         <form className='signupForm'onSubmit={handleSubmit}>
-          <div>
+          <img className='logo' src={logo} />
+          <div className='signup-header'>
             Signup for Rock Flickr
           </div>
           <ul>
@@ -71,6 +73,9 @@ const SignupForm = () => {
               required
             />
           <button className='button' type="submit">Sign Up</button>
+          <div>Already a member?
+            <span>Log in here.</span>
+          </div>
         </form>
     )
 }
