@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, } from 'react-redux';
 import { logout } from '../../store/session';
+import { NavLink } from 'react-router-dom';
 
 const ProfileButton = ({ user }) => {
     const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const ProfileButton = ({ user }) => {
               <li className='profile-list'>{user.username}</li>
               <li className='profile-list'>{user.email}</li>
               <li className='profile-list'>
-                <div onClick={() => dispatch(logout())}><i class="fas fa-sign-out-alt" id='logout'></i>Log Out</div>
+                  <div onClick={() => dispatch(logout())}><i class="fas fa-sign-out-alt" id='logout'></i>Log Out</div>
               </li>
             </ul>
           )}

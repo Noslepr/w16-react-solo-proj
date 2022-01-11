@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { Route, Switch } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 
 import { restoreUser } from "./store/session";
 import { getPhotos } from "./store/photos";
@@ -27,9 +27,14 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} sessionUser={sessionUser}/>
       {!sessionUser && (
-        <Splash />
+        <>
+          <Redirect to='/' />
+          <Splash />
+        </>
       )}
-      <Switch>
+      {sessionUser && (
+
+        <Switch>
         <Route exact path='/'>
           <Explore sessionUser={sessionUser}/>
         </Route>
@@ -39,7 +44,8 @@ function App() {
         <Route  path='/photo/:photoId'>
           <PhotoDetails />
         </Route>
-      </Switch>
+        </Switch>
+      )}
     </>
 
   );
