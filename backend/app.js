@@ -18,9 +18,11 @@ app.use(express.json());
 if (!isProduction) {
     app.use(cors());
 };
+
 // app.use(helmet({
 //     contentSecurityPolicy: false
 // }));
+
 app.use(csurf({
     cookie: {
         secure: isProduction,
