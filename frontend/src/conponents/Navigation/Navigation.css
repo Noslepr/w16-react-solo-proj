@@ -27,13 +27,13 @@ nav {
 .login-btn {
     background-color: rgba(0, 0, 0, 0);
     color: white;
-    margin: 0px 15px;
+    margin: 0px 20px;
     font-size: 15px;
     cursor: pointer;
 }
 
 .signin-btn {
-    /* margin-right: 35px; */
+    background-color: white;
     width: 90px;
     height: 30px;
     border-radius: 6px;
@@ -55,7 +55,7 @@ nav {
 }
 
 .nav-right {
-    margin-right: 35px;
+    margin-right: 20px;
 }
 
 .fas {
