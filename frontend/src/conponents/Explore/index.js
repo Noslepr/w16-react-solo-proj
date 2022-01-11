@@ -15,8 +15,9 @@ const Explore = ({ sessionUser}) => {
     if (sessionUser) {
         return (
             <>
-                <div>hello from explore page</div>
-                <img src={`${photos[1].photoUrl}`}></img>
+                {Object.keys(photos).map(key => (
+                    <img key={key} src={photos[key].photoUrl}></img>
+                ))}
             </>
         )
     } else {
