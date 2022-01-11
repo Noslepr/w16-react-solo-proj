@@ -12,7 +12,7 @@ module.exports = {
      {
        userId: 1,
        photoUrl: 'https://res.cloudinary.com/rock-flickr/image/upload/v1641852269/photo-1516902663607-8d25785663fe_fac6a0.jpg',
-       description: 'Taking a big fall! Photo by Christoph Deinet on Unsplash',
+       description: 'Taking a big fall at the crux of Fun Teminal (5.12a) at Elephant Rock.! Photo by Christoph Deinet on Unsplash',
      }
   ], {});
   },
