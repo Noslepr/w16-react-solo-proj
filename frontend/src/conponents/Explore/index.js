@@ -8,14 +8,16 @@ const Explore = ({ sessionUser}) => {
     const dispatch = useDispatch();
     const photos = useSelector(state => state.photos)
 
-    useEffect(() => {
-        dispatch(getPhotos())
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(getPhotos())
+    // }, [dispatch])
+
     if (sessionUser) {
         return (
             <>
-                <div>hello from explore page</div>
-                <img src={`${photos[1].photoUrl}`}></img>
+                {Object.keys(photos).map(key => (
+                    <img key={key} src={photos[key].photoUrl}></img>
+                ))}
             </>
         )
     } else {

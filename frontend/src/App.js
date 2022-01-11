@@ -3,11 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom'
 
 import { restoreUser } from "./store/session";
+import { getPhotos } from "./store/photos";
 import LoginFormPage from './conponents/LoginFormModal';
 import SignupFormPage from "./conponents/SignupFormPage";
 import Navigation from "./conponents/Navigation";
 import Explore from "./conponents/Explore";
 import Splash from "./conponents/Splash";
+import PostPhoto from "./conponents/PostPhoto";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,6 +20,10 @@ function App() {
     dispatch(restoreUser()).then(() => {setIsLoaded(true)})
   }, [dispatch])
 
+  useEffect(() => {
+    dispatch(getPhotos())
+}, [dispatch])
+
   return (
     <>
       <Navigation isLoaded={isLoaded} sessionUser={sessionUser}/>
@@ -26,6 +32,9 @@ function App() {
       )}
         <Route exact path='/'>
           <Explore sessionUser={sessionUser}/>
+        </Route>
+        <Route path='/post-photo'>
+          <PostPhoto sessionUser={sessionUser} />
         </Route>
     </>
 

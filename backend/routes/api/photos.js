@@ -8,5 +8,15 @@ router.get('/', asyncHandler(async(req, res) => {
     return res.json({ photos })
 }))
 
+router.post('/', asyncHandler(async(req, res) => {
+    const { userId, photoUrl, description } = req.body;
+
+    const photo = await db.Photo.create({ userId, photoUrl, description })
+
+    if(photo) {
+        res.json({ photo })
+    }
+}))
+
 
 module.exports = router
