@@ -10,6 +10,7 @@ import Navigation from "./conponents/Navigation";
 import Explore from "./conponents/Explore";
 import Splash from "./conponents/Splash";
 import PostPhoto from "./conponents/PostPhoto";
+import PhotoDetails from "./conponents/PhotoDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,12 +31,17 @@ function App() {
       {!sessionUser && (
         <Splash />
       )}
+      <Switch>
         <Route exact path='/'>
           <Explore sessionUser={sessionUser}/>
         </Route>
         <Route path='/post-photo'>
           <PostPhoto sessionUser={sessionUser} />
         </Route>
+        <Route  path='/photo/:photoId'>
+          <PhotoDetails />
+        </Route>
+      </Switch>
     </>
 
   );

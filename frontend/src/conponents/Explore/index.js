@@ -5,12 +5,7 @@ import { getPhotos } from '../../store/photos'
 
 
 const Explore = ({ sessionUser}) => {
-    const dispatch = useDispatch();
     const photos = useSelector(state => state.photos)
-
-    // useEffect(() => {
-    //     dispatch(getPhotos())
-    // }, [dispatch])
 
     if (sessionUser) {
         return (
