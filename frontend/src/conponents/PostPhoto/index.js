@@ -1,21 +1,27 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Redirect, useHistory } from 'react-router-dom'
 
 import { postPhoto } from '../../store/photos';
 
 
 const PostPhoto = ({ sessionUser }) => {
     const dispatch = useDispatch();
+    const history = useHistory()
 
     const [photoUrl, setPhotoUrl] = useState('')
     const [description, setDescription] = useState('')
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const userId = sessionUser.id
 
         const photo = { userId, photoUrl, description }
-        dispatch(postPhoto(photo))
+        const data = await dispatch(postPhoto(photo))
+
+        if(data) {
+            history.push(`/photo/${data.id}`)
+        }
     }
 
     return (

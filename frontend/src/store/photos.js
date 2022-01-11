@@ -24,6 +24,8 @@ export const getPhotos = () => async dispatch => {
 
     const data = await res.json();
     dispatch(get(data.photos))
+
+    return res
 }
 
 export const postPhoto = (photo) => async dispatch => {
@@ -34,8 +36,8 @@ export const postPhoto = (photo) => async dispatch => {
     })
 
     const data = await res.json();
-    console.log(data)
     dispatch(post(data.photo))
+    return data.photo
 }
 
 const initialState = { photos: null }
@@ -49,7 +51,6 @@ const photoReducer = (state = initialState, action) => {
             newState = {...newState, ...state.photos};
             return newState;
         case POST_PHOTO:
-            console.log(action.photo)
             newState = {...state, [action.photo.id]: action.photo };
             return newState;
         default:
