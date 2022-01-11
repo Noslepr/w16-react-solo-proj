@@ -27,10 +27,15 @@ export const getPhotos = () => async dispatch => {
 }
 
 export const postPhoto = (photo) => async dispatch => {
+    const { userId, photoUrl, description } = photo;
     const res = await csrfFetch('/api/photos', {
         method: 'POST',
-        body: JSON.stringify({})
+        body: JSON.stringify({ userId, photoUrl, description })
     })
+
+    const data = await res.json();
+    console.log(data)
+    dispatch(post(data.photo))
 }
 
 const initialState = { photos: null }
@@ -39,12 +44,16 @@ const photoReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_PHOTOS:
             action.photos.forEach(photo => {
-                newState[photo.id] = photo
+                newState[photo.id] = photo;
             })
-            newState = {...newState, ...state.photos}
-            return newState
+            newState = {...newState, ...state.photos};
+            return newState;
+        case POST_PHOTO:
+            console.log(action.photo)
+            newState = {...state, [action.photo.id]: action.photo };
+            return newState;
         default:
-            return state
+            return state;
     }
 }
 

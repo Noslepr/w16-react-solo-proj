@@ -14,7 +14,7 @@ router.post('/', asyncHandler(async(req, res) => {
     const photo = await db.Photo.create({ userId, photoUrl, description })
 
     if(photo) {
-        res.json({message: 'success'})
+        res.json({ photo })
     }
 }))
 
