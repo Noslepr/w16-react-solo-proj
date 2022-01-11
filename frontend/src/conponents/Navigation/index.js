@@ -9,13 +9,11 @@ import SignupFormModal from '../SignupFormPage';
 import logo from '../../images/logo.png'
 import './Navigation.css';
 
-const Navigation = (isLoaded) => {
+const Navigation = ({ isLoaded, sessionUser }) => {
     const dispatch = useDispatch()
     const history = useHistory()
-    const sessionUser = useSelector(state => state.session.user);
 
     const demoLogin = async (e) => {
-        console.log('in function')
         const res = await dispatch(login({ credential:'Demo-lition', password:'password' }))
 
         if (res.ok) {
