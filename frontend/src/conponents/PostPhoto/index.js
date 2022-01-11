@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 
 import { postPhoto } from '../../store/photos';
 
@@ -16,19 +16,8 @@ const PostPhoto = ({ sessionUser }) => {
         e.preventDefault()
         const userId = sessionUser.id
 
-        // let res
-        // let data
         const photo = { userId, photoUrl, description }
         const data = await dispatch(postPhoto(photo))
-        // .catch(async (res) => {
-        //     data = res.json()
-        //     console.log('inside catch data:', data)
-        // })
-        // const data = await res.json()
-        // console.log('res:', res)
-        console.log('data:', data)
-
-        // console.log('in handleSubmit data:', data)
 
         if(data) {
             history.push(`/photo/${data.id}`)

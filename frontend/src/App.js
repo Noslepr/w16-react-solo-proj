@@ -4,8 +4,6 @@ import { Route, Switch } from 'react-router-dom'
 
 import { restoreUser } from "./store/session";
 import { getPhotos } from "./store/photos";
-import LoginFormPage from './conponents/LoginFormModal';
-import SignupFormPage from "./conponents/SignupFormPage";
 import Navigation from "./conponents/Navigation";
 import Explore from "./conponents/Explore";
 import Splash from "./conponents/Splash";
@@ -23,7 +21,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getPhotos())
-}, [dispatch])
+  }, [dispatch])
 
   return (
     <>
