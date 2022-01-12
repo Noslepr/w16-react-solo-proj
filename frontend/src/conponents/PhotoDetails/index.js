@@ -31,7 +31,7 @@ const PhotoDetails = ({ sessionUser }) => {
             <div id='description'>{photo.description}</div>
             {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditPhotoForm />
+          <EditPhotoForm photoId={photoId} setShowModal={setShowModal}/>
         </Modal>
       )}
         </>

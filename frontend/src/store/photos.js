@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf'
 
 const GET_PHOTOS = 'photos/GET_PHOTOS'
 const POST_PHOTO = 'photos/POST_PHOTO'
+const UPDATE_PHOTO = 'photos/UPDATE_PHOTO'
 
 const get = (photos) => {
     return {
@@ -13,6 +14,13 @@ const get = (photos) => {
 const post = (photo) => {
     return {
         type: POST_PHOTO,
+        photo
+    }
+}
+
+const update = (photo) => {
+    return {
+        type: UPDATE_PHOTO,
         photo
     }
 }
@@ -40,21 +48,34 @@ export const postPhoto = (photo) => async dispatch => {
     return data.photo
 }
 
+export const updatePhoto = (photo) => async dispatch => {
+    const { id, photoUrl, description } = photo;
+    const res = await csrfFetch('/api/photos', {
+        method: 'PATCH',
+        body: JSON.stringify({ id, photoUrl, description })
+    })
+
+    const data = await res.json();
+    dispatch(update(data.photo))
+    return data.photo
+}
+
 const initialState = { photos: null }
 const photoReducer = (state = initialState, action) => {
     let newState = {};
     switch (action.type) {
         case GET_PHOTOS:
             newState = {...state}
-            // action.photos.forEach(photo => {
-            //     newState.photos[photo.id] = photo;
-            // })
             newState.photos = action.photos.reduce((a, b) => {
                 return { ...a, [b.id]: b }
             }, {})
             return newState;
         case POST_PHOTO:
-            newState = {...state, [action.photo.id]: action.photo };
+            newState.photos = {...state, [action.photo.id]: action.photo };
+            return newState;
+        case UPDATE_PHOTO:
+            // newState = {...state}
+            newState.photos = {...state.photos,[action.photo.id]: action.photo }
             return newState;
         default:
             return state;
