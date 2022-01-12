@@ -29,5 +29,14 @@ router.patch('/', asyncHandler(async(req, res) => {
     }
 }))
 
+router.delete('/', asyncHandler(async(req, res) => {
+    const { id } = req.body;
+
+    const photo = await db.Photo.findByPk(id)
+    await photo.destroy()
+
+    res.json({ photo })
+}))
+
 
 module.exports = router

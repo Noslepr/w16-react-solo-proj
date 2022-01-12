@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf'
 const GET_PHOTOS = 'photos/GET_PHOTOS'
 const POST_PHOTO = 'photos/POST_PHOTO'
 const UPDATE_PHOTO = 'photos/UPDATE_PHOTO'
+const DESTROY_PHOTO = 'photos/DESTROY_PHOTO'
 
 const get = (photos) => {
     return {
@@ -21,6 +22,13 @@ const post = (photo) => {
 const update = (photo) => {
     return {
         type: UPDATE_PHOTO,
+        photo
+    }
+}
+
+const destroy = (photo) => {
+    return {
+        type: DESTROY_PHOTO,
         photo
     }
 }
@@ -60,6 +68,17 @@ export const updatePhoto = (photo) => async dispatch => {
     return data.photo
 }
 
+export const destroyPhoto = (photo) => async dispatch => {
+    const { id } = photo
+    const res = await csrfFetch('/api/photos', {
+        method: 'DELETE',
+        body: JSON.stringify({ id })
+    })
+
+    const data = await res.json();
+    dispatch(destroy(data.photo))
+}
+
 const initialState = { photos: null }
 const photoReducer = (state = initialState, action) => {
     let newState = {};
@@ -71,12 +90,15 @@ const photoReducer = (state = initialState, action) => {
             }, {})
             return newState;
         case POST_PHOTO:
-            newState.photos = {...state, [action.photo.id]: action.photo };
+            newState.photos = {...state.photos, [action.photo.id]: action.photo };
             return newState;
         case UPDATE_PHOTO:
-            // newState = {...state}
             newState.photos = {...state.photos,[action.photo.id]: action.photo }
             return newState;
+        case DESTROY_PHOTO:
+            newState.photos = {...state.photos}
+            delete newState.photos[action.photo.id]
+            return newState
         default:
             return state;
     }

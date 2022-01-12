@@ -13,7 +13,7 @@ const EditPhotoForm = ({ photoId, setShowModal }) => {
         e.preventDefault();
 
         const photo = { id: photoId, photoUrl, description };
-        const data = await dispatch(updatePhoto(photo))
+        dispatch(updatePhoto(photo))
 
         setShowModal(false)
 
