@@ -21,6 +21,7 @@
 
 .top-display {
     opacity: 1;
+    z-index: 1;
 }
 
 .carousel-img {

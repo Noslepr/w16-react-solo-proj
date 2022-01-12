@@ -13,7 +13,7 @@ const Explore = ({ sessionUser }) => {
         const active = document.querySelector('.top-display')
         const prevBtn = document.querySelector('.prev')
         const nextBtn = document.querySelector('.next')
-        
+
         active.classList.remove('top-display')
         active.nextSibling.classList.add('top-display')
         prevBtn.style.display = 'block'
@@ -37,15 +37,17 @@ const Explore = ({ sessionUser }) => {
         }
     }
 
+    useEffect(() => {
+        const first = document.querySelector('#carousel-container > li')
+        first.classList.add('top-display')
+    }, [])
+
     if (sessionUser) {
         return (
             <>
                 <button className='carousel-btn prev' onClick={prev}><i className="fas fa-chevron-left"></i></button>
                 <button className='carousel-btn next' onClick={next}><i className="fas fa-chevron-right"></i></button>
                 <ul id='carousel-container'>
-                    <li className='img-backing top-display'>
-                        <img className='carousel-img' src={photos[18].photoUrl}></img>
-                    </li>
                     {Object.keys(photos).map(key => (
                         <li  key={key * 10}className='img-backing'>
                             <Link to={`/photo/${key}`}>

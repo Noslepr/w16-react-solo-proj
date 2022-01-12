@@ -10,7 +10,7 @@ const PhotoDetails = () => {
     return (
         <>
             <div id='description'>{photo.description}</div>
-            <img src={photo.photoUrl} />
+            <img className='details-img'src={photo.photoUrl} />
         </>
     )
 }
