@@ -34,25 +34,35 @@
 }
 
 .fa-chevron-left {
-    font-size: 80px;
-    color: white;
     position: absolute;
-    background: none;
-    border: none;
+    font-size: 80px;
+    border-radius: 6px;
+    color: rgb(233, 233, 233);
+    background-color: rgba(0, 0, 0, 0.2);
     left: 20px;
     top: 300px;
     z-index: 2;
 }
 
 .fa-chevron-right {
-    font-size: 80px;
-    color: white;
     position: absolute;
-    background: none;
-    border: none;
+    font-size: 80px;
+    border-radius: 6px;
+    color: rgb(233, 233, 233);
+    background-color: rgba(0, 0, 0, 0.2);
     right: 20px;
     top: 300px;
     z-index: 2
+}
+
+.fa-chevron-left:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.fa-chevron-right:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .prev {
