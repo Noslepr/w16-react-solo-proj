@@ -55,7 +55,7 @@ const Navigation = ({ isLoaded, sessionUser }) => {
             </ul>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <PostPhoto setShowModal={setShowModal}/>
+                    <PostPhoto sessionUser={sessionUser} setShowModal={setShowModal}/>
                 </Modal>
             )}
 

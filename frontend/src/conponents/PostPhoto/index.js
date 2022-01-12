@@ -27,7 +27,7 @@ const PostPhoto = ({ sessionUser, setShowModal }) => {
     }
 
     return (
-        <form className="form-container" id="post-form" onSubmit={handleSubmit}>
+        <form className="form-container" id="post-form">
             <h2 id='post-header'>Fill out photo details:</h2>
             <label>Photo URL:</label>
             <input
@@ -45,7 +45,14 @@ const PostPhoto = ({ sessionUser, setShowModal }) => {
                 onChange={(e) => setDescription(e.target.value)}
                 value={description}
             />
-            <button className='button' type='submit'>Post Photo</button>
+            <button
+                className='button'
+                type='button'
+                onClick={(e) => {
+                    setShowModal(false);
+                    handleSubmit(e)
+                }}
+            >Post Photo</button>
             <button className='button cancel' onClick={() => setShowModal(false)}>Cancel</button>
         </form>
     )
