@@ -38,7 +38,6 @@ const Navigation = ({ isLoaded, sessionUser }) => {
     return (
         <nav>
             <div className="nav-left">
-                {/* <img id='logo'src={logo}></img> */}
                 <NavLink exact to="/">
                     <img className='logo'src={logo}></img>
                     Rock Flickr

@@ -19,9 +19,9 @@ function App() {
     dispatch(restoreUser()).then(() => {setIsLoaded(true)})
   }, [dispatch])
 
-  useEffect(() => {
-    dispatch(getPhotos())
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(getPhotos())
+  // }, [dispatch])
 
   return (
     <>

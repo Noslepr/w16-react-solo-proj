@@ -5,7 +5,7 @@ import './PhotoDetails.css'
 
 const PhotoDetails = () => {
     const { photoId } = useParams();
-    const photo = useSelector(state => state.photos[photoId])
+    const photo = useSelector(state => state.photos.photos[photoId])
 
     return (
         <>
