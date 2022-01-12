@@ -32,13 +32,16 @@ nav {
     cursor: pointer;
 }
 
-.signin-btn {
+.white-btn {
     background-color: white;
     width: 90px;
     height: 30px;
     border-radius: 6px;
     font-size: 15px;
-    cursor: pointer;
+}
+
+#logout-btn {
+    background-color: white;
 }
 
 .nav-left {
@@ -59,7 +62,7 @@ nav {
     margin-right: 20px;
 }
 
-.fas {
+.fa-user-circle {
     font-size: 30px;
     background-color: #212124;
     color: white;
@@ -80,8 +83,17 @@ nav {
     padding: 5px 10px;
 }
 
-#logout {
+.fa-sign-out-alt {
     font-size: 16px;
     background-color: rgba(0, 0, 0, 0);
     margin-right: 5px;
+}
+
+.upload {
+    width: 100px;
+    margin-right: 40px;
+}
+
+.upload:hover {
+    background-color: rgb(202, 202, 202);
 }

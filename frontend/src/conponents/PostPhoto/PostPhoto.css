@@ -1,0 +1,20 @@
+#post-form {
+    height: 400px;
+}
+
+#post-header {
+    margin-bottom: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    width: 90%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.cancel {
+    background-color: rgb(202, 0, 0);
+}
+
+.cancel:hover {
+    background-color: rgb(172, 1, 1);
+}

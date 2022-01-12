@@ -1,3 +1,7 @@
+#edit-form {
+    height: 400px;
+}
+
 .form-container {
     display: flex;
     flex-direction: column;
@@ -11,9 +15,12 @@
 }
 
 #edit-header {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
-    font-size: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    width: 90%;
+    text-align: center;
+    padding-bottom: 10px;
 }
 
 label {
