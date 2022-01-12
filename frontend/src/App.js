@@ -42,7 +42,7 @@ function App() {
           <PostPhoto sessionUser={sessionUser} />
         </Route>
         <Route  path='/photo/:photoId'>
-          <PhotoDetails />
+          <PhotoDetails sessionUser={sessionUser}/>
         </Route>
         </Switch>
       )}

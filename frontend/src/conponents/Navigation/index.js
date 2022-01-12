@@ -43,12 +43,12 @@ const Navigation = ({ isLoaded, sessionUser }) => {
                     Rock Flickr
                 </NavLink>
             </div>
-            {sessionUser && (
-                <NavLink to='/post-photo'>
-                    <div>post</div>
-                </NavLink>
-            )}
             <ul className="nav-right">
+                {sessionUser && (
+                    <NavLink to='/post-photo'>
+                        <div>post</div>
+                    </NavLink>
+                )}
                 {isLoaded && sessionLinks}
             </ul>
 
