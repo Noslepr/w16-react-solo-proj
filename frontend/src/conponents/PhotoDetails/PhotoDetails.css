@@ -4,7 +4,7 @@
 
 
 .details-img {
-    margin-top: 50px;
+    margin-top: 75px;
     width: 90%;
 }
 
@@ -22,4 +22,42 @@
 #delete {
     width: 150px;
     border: none;
+}
+
+#delete-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    width: 600px;
+    padding: 30px;
+}
+
+#delete-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#delete-text {
+    font-size: 25px;
+}
+
+#delete-btn-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    padding-top: 10px;
+}
+
+#cancel-delete {
+    width: 100px;
+}
+
+#confirm-delete {
+    width: 200px;
+    background-color: rgb(202, 0, 0);
 }

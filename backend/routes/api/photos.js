@@ -18,5 +18,25 @@ router.post('/', asyncHandler(async(req, res) => {
     }
 }))
 
+router.patch('/', asyncHandler(async(req, res) => {
+    const { id, photoUrl, description } = req.body;
+
+    const photo = await db.Photo.findByPk(id)
+    const updatedPhoto = await photo.update({id, photoUrl, description})
+
+    if(updatedPhoto) {
+        res.json({ photo })
+    }
+}))
+
+router.delete('/', asyncHandler(async(req, res) => {
+    const { id } = req.body;
+
+    const photo = await db.Photo.findByPk(id)
+    await photo.destroy()
+
+    res.json({ photo })
+}))
+
 
 module.exports = router
