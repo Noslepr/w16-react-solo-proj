@@ -46,7 +46,7 @@ const Navigation = ({ isLoaded, sessionUser }) => {
             <ul className="nav-right">
                 {sessionUser && (
                     <NavLink to='/post-photo'>
-                        <div>post</div>
+                        <button className='white-btn'>Upload Photo</button>
                     </NavLink>
                 )}
                 {isLoaded && sessionLinks}
