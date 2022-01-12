@@ -40,7 +40,7 @@
     background: none;
     border: none;
     left: 20px;
-    top: 50%;
+    top: 300px;
     z-index: 2;
 }
 
@@ -51,7 +51,7 @@
     background: none;
     border: none;
     right: 20px;
-    top: 50%;
+    top: 300px;
     z-index: 2
 }
 
