@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom'
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom'
 
 import { postPhoto } from '../../store/photos';
 
+import './PostPhoto.css'
 
-const PostPhoto = ({ sessionUser }) => {
+
+const PostPhoto = ({ sessionUser, setShowModal }) => {
     const dispatch = useDispatch();
     const history = useHistory()
 
@@ -25,24 +27,26 @@ const PostPhoto = ({ sessionUser }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>Photo URL
-                <input
-                    type="text"
-                    required
-                    onChange={(e) => setPhotoUrl(e.target.value)}
-                    value={photoUrl}
-                />
-            </label>
-            <label>Description
-                <input
-                    type="text"
-                    placeholder='optional'
-                    onChange={(e) => setDescription(e.target.value)}
-                    value={description}
-                />
-            </label>
-            <button type='submit'>Post Photo</button>
+        <form className="form-container" id="post-form" onSubmit={handleSubmit}>
+            <h2 id='post-header'>Fill out photo details:</h2>
+            <label>Photo URL:</label>
+            <input
+                className='formField'
+                type="text"
+                required
+                onChange={(e) => setPhotoUrl(e.target.value)}
+                value={photoUrl}
+            />
+            <label>Description:</label>
+            <input
+                className='formField'
+                type="text"
+                placeholder='optional'
+                onChange={(e) => setDescription(e.target.value)}
+                value={description}
+            />
+            <button className='button' type='submit'>Post Photo</button>
+            <button className='button cancel' onClick={() => setShowModal(false)}>Cancel</button>
         </form>
     )
 

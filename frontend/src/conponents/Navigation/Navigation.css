@@ -40,6 +40,10 @@ nav {
     font-size: 15px;
 }
 
+#logout-btn {
+    background-color: white;
+}
+
 .nav-left {
     margin-left: 30px;
     font-size: 25px;
@@ -58,7 +62,7 @@ nav {
     margin-right: 20px;
 }
 
-.fas {
+.fa-user-circle {
     font-size: 30px;
     background-color: #212124;
     color: white;
@@ -79,8 +83,17 @@ nav {
     padding: 5px 10px;
 }
 
-#logout {
+.fa-sign-out-alt {
     font-size: 16px;
     background-color: rgba(0, 0, 0, 0);
     margin-right: 5px;
+}
+
+.upload {
+    width: 100px;
+    margin-right: 40px;
+}
+
+.upload:hover {
+    background-color: rgb(202, 202, 202);
 }

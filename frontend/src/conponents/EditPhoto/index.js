@@ -19,8 +19,8 @@ const EditPhotoForm = ({ photoId, setShowModal }) => {
 
     }
     return (
-        <form className="form-container" onSubmit={handleSubmit}>
-            <div id='edit-header'>Change your photo here:</div>
+        <form className="form-container" id='edit-form' onSubmit={handleSubmit}>
+            <h2 id='edit-header'>Change your photo here:</h2>
             <label>New photo URL:</label>
             <input
                 className='formField'
@@ -40,6 +40,7 @@ const EditPhotoForm = ({ photoId, setShowModal }) => {
                 value={description}
             />
             <button className='button' type='submit' >Commit Change</button>
+            <button className='button cancel' onClick={() => setShowModal(false)}>Cancel</button>
         </form>
     )
 }

@@ -32,7 +32,9 @@ const ProfileButton = ({ user }) => {
               <li className='profile-list'>{user.username}</li>
               <li className='profile-list'>{user.email}</li>
               <li className='profile-list'>
-                  <div onClick={() => dispatch(logout())}><i className="fas fa-sign-out-alt" id='logout'></i>Log Out</div>
+                  <button id='logout-btn' onClick={() => dispatch(logout())}>
+                    <i className="fas fa-sign-out-alt"></i>Log Out
+                  </button>
               </li>
             </ul>
           )}
