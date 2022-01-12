@@ -45,10 +45,13 @@ const photoReducer = (state = initialState, action) => {
     let newState = {};
     switch (action.type) {
         case GET_PHOTOS:
-            action.photos.forEach(photo => {
-                newState[photo.id] = photo;
-            })
-            newState = {...newState, ...state.photos};
+            newState = {...state}
+            // action.photos.forEach(photo => {
+            //     newState.photos[photo.id] = photo;
+            // })
+            newState.photos = action.photos.reduce((a, b) => {
+                return { ...a, [b.id]: b }
+            }, {})
             return newState;
         case POST_PHOTO:
             newState = {...state, [action.photo.id]: action.photo };

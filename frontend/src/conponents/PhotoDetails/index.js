@@ -5,10 +5,12 @@ import './PhotoDetails.css'
 
 const PhotoDetails = ({ sessionUser }) => {
     const { photoId } = useParams();
-    const photo = useSelector(state => state.photos[photoId])
+
+    const photo = useSelector(state => state.photos.photos[photoId])
     const photoOwner = photo.userId
     const isOwner = photoOwner === sessionUser.id
     console.log(isOwner)
+
 
     return (
         <>

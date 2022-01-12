@@ -7,7 +7,8 @@ import "./Explore.css"
 
 
 const Explore = ({ sessionUser }) => {
-    const photos = useSelector(state => state.photos)
+    const dispatch = useDispatch()
+    const photos = useSelector(state => state.photos.photos)
 
     const next = () => {
         const active = document.querySelector('.top-display')
@@ -38,13 +39,20 @@ const Explore = ({ sessionUser }) => {
     }
 
     useEffect(() => {
-        const first = document.querySelector('#carousel-container > li')
-        first.classList.add('top-display')
-    }, [])
+        if (photos) {
+            const first = document.querySelector('#carousel-container > li')
+            first.classList.add('top-display')
+        }
+    }, [photos])
 
-    if (sessionUser) {
+    useEffect(() => {
+        dispatch(getPhotos())
+    }, [dispatch])
+
         return (
             <>
+            {photos &&
+                (<>
                 <button className='carousel-btn prev' onClick={prev}><i className="fas fa-chevron-left"></i></button>
                 <button className='carousel-btn next' onClick={next}><i className="fas fa-chevron-right"></i></button>
                 <ul id='carousel-container'>
@@ -56,12 +64,11 @@ const Explore = ({ sessionUser }) => {
                         </li>
                     ))}
                 </ul>
-            </>
+            </>)
+        }
+        </>
         )
-    } else {
-        return (null)
     }
-}
 
 
 export default Explore
