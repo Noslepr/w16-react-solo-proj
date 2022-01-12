@@ -51,7 +51,7 @@ nav {
 .logo {
     height: 30px;
     width: 30px;
-    margin-right: 10px;
+    margin-right: 10px;;
 }
 
 .nav-right {
@@ -60,7 +60,8 @@ nav {
 
 .fas {
     font-size: 30px;
-    background-color: rgba(0, 0, 0, 0.35)
+    background-color: #212124;
+    color: white;
 }
 
 .profile-dropdown {
@@ -71,6 +72,7 @@ nav {
     border: 1px solid black;
     border-radius: 6px;
     background-color: white;
+    z-index: 3;
 }
 
 .profile-list {

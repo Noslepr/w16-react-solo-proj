@@ -14,7 +14,8 @@
     margin: 10px 0px;
 
     position:absolute;
-    inset: 0;
+    top: 50px;
+    /* inset: 0; */
     opacity: 0;
 }
 
