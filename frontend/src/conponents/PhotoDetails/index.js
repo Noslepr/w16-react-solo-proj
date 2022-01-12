@@ -18,6 +18,7 @@ const PhotoDetails = ({ sessionUser }) => {
                         id='edit'
                         className="button"
                         // onClick={}
+                        
                         >Edit</button>
                     <button id='delete'className="button">Delete</button>
                 </div>
