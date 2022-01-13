@@ -23,7 +23,7 @@ const EditPhotoForm = ({ photoId, setShowModal }) => {
             <h2 id='edit-header'>Change your photo here:</h2>
             <label>New photo URL:</label>
             <input
-                className='formField'
+                className='formField wide-form'
                 id='edit-field'
                 type="text"
                 required
@@ -31,10 +31,11 @@ const EditPhotoForm = ({ photoId, setShowModal }) => {
                 value={photoUrl}
             />
             <label>Description:</label>
-            <input
-                className='formField'
+            <textarea
+                className='formField textarea'
                 id='edit-field'
                 type="text"
+                rows={5}
                 placeholder='optional'
                 onChange={(e) => setDescription(e.target.value)}
                 value={description}
