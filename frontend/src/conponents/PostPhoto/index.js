@@ -20,15 +20,15 @@ const PostPhoto = ({ sessionUser, setShowModal }) => {
         const userId = sessionUser.id
 
         const photo = { userId, photoUrl, description }
-        // const data = await dispatch(postPhoto(photo))
         setErrors([]);
 
         const data = await dispatch(postPhoto(photo))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
-            });
-            console.log('data:', data)
+            }
+        );
+
         if(data) {
             history.push(`/photo/${data.id}`)
             setShowModal(false)
@@ -38,7 +38,7 @@ const PostPhoto = ({ sessionUser, setShowModal }) => {
     return (
         <form className="form-container" id="post-form">
             <h2 id='post-header'>Fill out photo details:</h2>
-            <ul>
+            <ul className='err-list'>
                 {errors.map((error, idx) => <li className='errors'key={idx}>{error}</li>)}
             </ul>
             <label>Photo URL:</label>
@@ -62,7 +62,6 @@ const PostPhoto = ({ sessionUser, setShowModal }) => {
                 className='button'
                 type='button'
                 onClick={(e) => {
-                    // setShowModal(false);
                     handleSubmit(e)
                 }}
             >Post Photo</button>

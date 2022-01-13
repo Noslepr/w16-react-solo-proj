@@ -10,19 +10,32 @@ const EditPhotoForm = ({ photoId, setShowModal }) => {
 
     const [photoUrl, setPhotoUrl] = useState(photo.photoUrl)
     const [description, setDescription] = useState(photo.description)
+    const [errors, setErrors] = useState([])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const photo = { id: photoId, photoUrl, description };
-        dispatch(updatePhoto(photo))
+        setErrors([]);
 
-        setShowModal(false)
+        const data = await dispatch(updatePhoto(photo))
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            }
+        );
+
+        if(data) {
+            setShowModal(false)
+        }
 
     }
     return (
         <form className="form-container" id='edit-form' onSubmit={handleSubmit}>
             <h2 id='edit-header'>Change your photo here:</h2>
+            <ul className='err-list'>
+                {errors.map((error, idx) => <li className='errors'key={idx}>{error}</li>)}
+            </ul>
             <label>New photo URL:</label>
             <input
                 className='formField wide-form'

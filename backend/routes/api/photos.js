@@ -30,7 +30,7 @@ router.get('/', asyncHandler(async(req, res) => {
     const photos = await db.Photo.findAll({
         order: [['id', 'DESC']]
     })
-    
+
     return res.json({ photos })
 }))
 
@@ -44,7 +44,7 @@ router.post('/', photoErrors, asyncHandler(async(req, res) => {
     }
 }))
 
-router.patch('/', asyncHandler(async(req, res) => {
+router.patch('/', photoErrors, asyncHandler(async(req, res) => {
     const { id, photoUrl, description } = req.body;
 
     const photo = await db.Photo.findByPk(id)
