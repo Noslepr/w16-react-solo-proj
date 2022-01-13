@@ -2,7 +2,7 @@ import { Redirect, useHistory } from 'react-router-dom'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import logo from '../../images/logo.png'
+import logo from '../../images/logo-black.png'
 import { signup } from '../../store/session'
 import './SignupForm.css';
 

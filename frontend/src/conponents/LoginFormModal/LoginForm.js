@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { login } from '../../store/session'
 import { Modal } from '../../context/Modal'
 import SignupForm from '../SignupFormPage'
-import logo from '../../images/logo.png'
+import logo from '../../images/logo-black.png'
 import './LoginForm.css';
 
 const LoginForm = ({ showModal, setShowModal }) => {
@@ -15,7 +15,7 @@ const LoginForm = ({ showModal, setShowModal }) => {
     const [credential, setCredential] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState([]);
-    const [showSignupModal, setShowSignupModal] = useState(false)
+    const [switchModal, setSwitchModal] = useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,18 +31,6 @@ const LoginForm = ({ showModal, setShowModal }) => {
         if (res.ok) {
             history.push('/')
         }
-    }
-
-    useEffect(() => {
-        // console.log('showModal:', showModal)
-        // console.log('showSignupModal:', showSignupModal)
-    }, [showModal, showSignupModal])
-
-    const test1 = () => {
-        console.log('test1')
-    }
-    const test2 = () => {
-        console.log('test2')
     }
 
     return (
@@ -73,17 +61,15 @@ const LoginForm = ({ showModal, setShowModal }) => {
                 <span
                     onClick={() => {
                         // setShowModal(false);
-                        // setShowSignupModal(true)
-                        test1();
-                        test2()
+                        setSwitchModal(true)
                     }}
                 >Sign up here</span>
-                {showSignupModal && (
-                    <Modal onClose={() => setShowSignupModal(false)}>
-                        <SignupForm />
-                    </Modal>
-                )}
             </div>
+            {switchModal && (
+                <Modal onClose={() => setSwitchModal(false)}>
+                    <SignupForm />
+                </Modal>
+            )}
         </form>
     )
 }
