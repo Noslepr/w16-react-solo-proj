@@ -29,6 +29,7 @@ const PhotoDetails = ({ sessionUser }) => {
 
     return (
         <>
+            <div id='description'>{photo.description}</div>
             {isOwner && (
                 <div id='edit-delete-container'>
                     <button
@@ -44,7 +45,6 @@ const PhotoDetails = ({ sessionUser }) => {
                 </div>
             )}
             <img className='details-img'src={photo.photoUrl} />
-            <div id='description'>{photo.description}</div>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                 <EditPhotoForm photoId={photoId} setShowModal={setShowModal}/>
