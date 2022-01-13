@@ -48,27 +48,28 @@ const Explore = ({ sessionUser }) => {
     useEffect(() => {
         dispatch(getPhotos())
     }, [dispatch])
-
-        return (
-            <>
+    const photoArr = Object.keys(photos)
+    console.log(photoArr)
+    return (
+        <>
             {photos &&
                 (<>
-                <button className='carousel-btn prev' onClick={prev}><i className="fas fa-chevron-left"></i></button>
-                <button className='carousel-btn next' onClick={next}><i className="fas fa-chevron-right"></i></button>
-                <ul id='carousel-container'>
-                    {Object.keys(photos).map(key => (
-                        <li  key={key * 10}className='img-backing'>
-                            <Link to={`/photo/${key}`}>
-                                <img className='carousel-img' key={key} src={photos[key].photoUrl}></img>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            </>)
-        }
+                    <button className='carousel-btn prev' onClick={prev}><i className="fas fa-chevron-left"></i></button>
+                    <button className='carousel-btn next' onClick={next}><i className="fas fa-chevron-right"></i></button>
+                    <ul id='carousel-container'>
+                        {Object.keys(photos).map(key => (
+                            <li  key={key * 10}className='img-backing'>
+                                <Link to={`/photo/${key}`}>
+                                    <img className='carousel-img' key={key} src={photos[key].photoUrl}></img>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </>)
+            }
         </>
-        )
-    }
+    )
+}
 
 
 export default Explore

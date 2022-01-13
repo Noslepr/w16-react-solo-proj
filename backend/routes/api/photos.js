@@ -1,14 +1,40 @@
 const router = require('express').Router()
 const asyncHandler = require('express-async-handler')
+const { check } = require('express-validator')
 
+const { handleValidationErrors } = require('../../utils/validation')
 const db = require('../../db/models')
 
+
+const imgEnding = string => {
+    if (string.endsWith('jpg') ||
+    string.endsWith('jpeg') ||
+    string.endsWith('png')) {
+        return true
+    } else {
+        return false
+    }
+}
+
+const photoErrors = [
+    check('photoUrl')
+        .custom(value => {
+            if (!imgEnding(value)) {
+                throw new Error('Please use .png, .jpg, or .jpeg file type')
+            }else return true
+        }),
+    handleValidationErrors,
+]
+
 router.get('/', asyncHandler(async(req, res) => {
-    const photos = await db.Photo.findAll()
+    const photos = await db.Photo.findAll({
+        order: [['id', 'DESC']]
+    })
+    
     return res.json({ photos })
 }))
 
-router.post('/', asyncHandler(async(req, res) => {
+router.post('/', photoErrors, asyncHandler(async(req, res) => {
     const { userId, photoUrl, description } = req.body;
 
     const photo = await db.Photo.create({ userId, photoUrl, description })
