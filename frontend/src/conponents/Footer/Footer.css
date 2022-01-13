@@ -2,12 +2,9 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    position: absolute;
-    bottom: 0;
     width: 100%;
-    background-color: black;
     color: white;
-    height: 50px;
+    height: 100%;
 }
 
 .footer-right {
@@ -20,4 +17,13 @@
 
 .git-link {
     height: 20px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    height: 50px;
+    z-index: 6;
 }

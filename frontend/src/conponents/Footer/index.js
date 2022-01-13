@@ -4,7 +4,7 @@ import linkedIn from '../../images/linkedin_icon.png'
 
 const Footer = () => {
     return (
-        <>
+        <footer>
             <ul id='footer-ul'>
                 <li>Java Script</li>
                 <li>React</li>
@@ -24,7 +24,7 @@ const Footer = () => {
                     </a>
                 </li>
             </ul>
-        </>
+        </footer>
     )
 }
 

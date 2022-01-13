@@ -23,26 +23,27 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} sessionUser={sessionUser}/>
+      <Footer />
       {!sessionUser && (
         <>
           <Redirect to='/' />
           <Splash />
-          <Footer />
         </>
       )}
       {sessionUser && (
-
-        <Switch>
-        <Route exact path='/'>
-          <Explore sessionUser={sessionUser}/>
-        </Route>
-        <Route path='/post-photo'>
-          <PostPhoto sessionUser={sessionUser} />
-        </Route>
-        <Route  path='/photo/:photoId'>
-          <PhotoDetails sessionUser={sessionUser}/>
-        </Route>
-        </Switch>
+        <>
+          <Switch>
+            <Route exact path='/'>
+              <Explore sessionUser={sessionUser}/>
+            </Route>
+            <Route path='/post-photo'>
+              <PostPhoto sessionUser={sessionUser} />
+            </Route>
+            <Route  path='/photo/:photoId'>
+              <PhotoDetails sessionUser={sessionUser}/>
+            </Route>
+          </Switch>
+        </>
       )}
     </>
 
