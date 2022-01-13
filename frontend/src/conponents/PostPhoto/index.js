@@ -13,22 +13,34 @@ const PostPhoto = ({ sessionUser, setShowModal }) => {
 
     const [photoUrl, setPhotoUrl] = useState('')
     const [description, setDescription] = useState('')
+    const [errors, setErrors] = useState([])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         const userId = sessionUser.id
 
         const photo = { userId, photoUrl, description }
+        setErrors([]);
+
         const data = await dispatch(postPhoto(photo))
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            }
+        );
 
         if(data) {
             history.push(`/photo/${data.id}`)
+            setShowModal(false)
         }
     }
 
     return (
         <form className="form-container" id="post-form">
             <h2 id='post-header'>Fill out photo details:</h2>
+            <ul className='err-list'>
+                {errors.map((error, idx) => <li className='errors'key={idx}>{error}</li>)}
+            </ul>
             <label>Photo URL:</label>
             <input
                 className='formField wide-form'
@@ -50,7 +62,6 @@ const PostPhoto = ({ sessionUser, setShowModal }) => {
                 className='button'
                 type='button'
                 onClick={(e) => {
-                    setShowModal(false);
                     handleSubmit(e)
                 }}
             >Post Photo</button>

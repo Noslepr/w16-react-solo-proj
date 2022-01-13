@@ -1,5 +1,5 @@
 #post-form {
-    height: 480px;
+    height: 500px;
     width: 600px;
 }
 
@@ -30,4 +30,8 @@
 
 .wide-form {
     width: 500px;
+}
+
+.err-list {
+    margin: 10px;
 }
