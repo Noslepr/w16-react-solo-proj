@@ -1,13 +1,15 @@
 import { useState } from "react"
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { updatePhoto } from "../../store/photos"
 import './EditPhoto.css'
 
 const EditPhotoForm = ({ photoId, setShowModal }) => {
     const dispatch = useDispatch()
-    const [photoUrl, setPhotoUrl] = useState('')
-    const [description, setDescription] = useState('')
+    const photo = useSelector(state => state.photos.photos[photoId])
+
+    const [photoUrl, setPhotoUrl] = useState(photo.photoUrl)
+    const [description, setDescription] = useState(photo.description)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
