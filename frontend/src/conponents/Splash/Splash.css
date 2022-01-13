@@ -6,13 +6,13 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: url('../../images/rakshith-hatwar-XNfyaABCLJk-unsplash.jpg');
     background-size: cover;
     z-index: -1;
     top: 0px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
     color: white;
     text-align: center;
+    animation: images infinite 30s
 }
 
 h1 {
@@ -28,6 +28,31 @@ h1 {
     border-radius: 6px;
 }
 
-.splash-text {
-    background-color: rgba(0, 0, 0, 0.1);
+@keyframes images {
+    from {
+        background-image: url('https://res.cloudinary.com/rock-flickr/image/upload/v1642115716/photo-1610242576532-7b93286c632a_qpab9a.jpg');
+        object-fit: cover;
+        object-position: center;
+    }
+    25% {
+        background-image: url('https://res.cloudinary.com/rock-flickr/image/upload/v1641859586/rakshith-hatwar-XNfyaABCLJk-unsplash_zhyfb3.jpg');
+
+        object-fit: cover;
+        object-position: center;
+    }
+    50% {
+        background-image: url('https://res.cloudinary.com/rock-flickr/image/upload/v1642114558/photo-1532501087002-0341b61f7e74_urc3jg.jpg');
+        object-fit: cover;
+        object-position: center;
+    }
+    75% {
+        background-image: url('https://res.cloudinary.com/rock-flickr/image/upload/v1642114622/photo-1515601915049-08c8836c2204_lbzbp8.jpg');
+        object-fit: cover;
+        object-position: center;
+    }
+    to {
+        background-image: url('https://res.cloudinary.com/rock-flickr/image/upload/v1642115716/photo-1610242576532-7b93286c632a_qpab9a.jpg');
+        object-fit: cover;
+        object-position: center;
+    }
 }
