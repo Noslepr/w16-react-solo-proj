@@ -5,6 +5,7 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 import { restoreUser } from "./store/session";
 import { getPhotos } from "./store/photos";
 import Navigation from "./conponents/Navigation";
+import Footer from "./conponents/Footer";
 import Explore from "./conponents/Explore";
 import Splash from "./conponents/Splash";
 import PostPhoto from "./conponents/PostPhoto";
@@ -19,10 +20,6 @@ function App() {
     dispatch(restoreUser()).then(() => {setIsLoaded(true)})
   }, [dispatch])
 
-  // useEffect(() => {
-  //   dispatch(getPhotos())
-  // }, [dispatch])
-
   return (
     <>
       <Navigation isLoaded={isLoaded} sessionUser={sessionUser}/>
@@ -30,6 +27,7 @@ function App() {
         <>
           <Redirect to='/' />
           <Splash />
+          <Footer />
         </>
       )}
       {sessionUser && (
