@@ -59,17 +59,17 @@ const LoginForm = ({ showModal, setShowModal }) => {
             <button className='button'type='submit'>Log in</button>
             <div>Not a member?
                 <span
-                    onClick={() => {
-                        // setShowModal(false);
-                        setSwitchModal(true)
-                    }}
+                    // onClick={() => {
+                    //     // setShowModal(false);
+                    //     setSwitchModal(true)
+                    // }}
                 >Sign up here</span>
             </div>
-            {switchModal && (
+            {/* {switchModal && (
                 <Modal onClose={() => setSwitchModal(false)}>
                     <SignupForm />
                 </Modal>
-            )}
+            )} */}
         </form>
     )
 }

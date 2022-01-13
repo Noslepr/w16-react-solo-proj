@@ -5,6 +5,7 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 import { restoreUser } from "./store/session";
 import { getPhotos } from "./store/photos";
 import Navigation from "./conponents/Navigation";
+import Footer from "./conponents/Footer";
 import Explore from "./conponents/Explore";
 import Splash from "./conponents/Splash";
 import PostPhoto from "./conponents/PostPhoto";
@@ -19,13 +20,10 @@ function App() {
     dispatch(restoreUser()).then(() => {setIsLoaded(true)})
   }, [dispatch])
 
-  // useEffect(() => {
-  //   dispatch(getPhotos())
-  // }, [dispatch])
-
   return (
     <>
       <Navigation isLoaded={isLoaded} sessionUser={sessionUser}/>
+      <Footer />
       {!sessionUser && (
         <>
           <Redirect to='/' />
@@ -33,18 +31,19 @@ function App() {
         </>
       )}
       {sessionUser && (
-
-        <Switch>
-        <Route exact path='/'>
-          <Explore sessionUser={sessionUser}/>
-        </Route>
-        <Route path='/post-photo'>
-          <PostPhoto sessionUser={sessionUser} />
-        </Route>
-        <Route  path='/photo/:photoId'>
-          <PhotoDetails sessionUser={sessionUser}/>
-        </Route>
-        </Switch>
+        <>
+          <Switch>
+            <Route exact path='/'>
+              <Explore sessionUser={sessionUser}/>
+            </Route>
+            <Route path='/post-photo'>
+              <PostPhoto sessionUser={sessionUser} />
+            </Route>
+            <Route  path='/photo/:photoId'>
+              <PhotoDetails sessionUser={sessionUser}/>
+            </Route>
+          </Switch>
+        </>
       )}
     </>
 

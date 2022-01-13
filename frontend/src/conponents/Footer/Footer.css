@@ -1,0 +1,29 @@
+#footer-ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    color: white;
+    height: 100%;
+}
+
+.footer-right {
+    display: flex;
+    justify-content: space-evenly;
+    width: 250px;
+    border-left: 1px solid white;
+    padding-left: 60px;
+}
+
+.git-link {
+    height: 20px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    height: 50px;
+    z-index: 6;
+}
