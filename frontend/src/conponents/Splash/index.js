@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import { Modal } from '../../context/Modal';
-// import SignupFormModal from '../SignupFormPage'
 import SignupForm from '../SignupFormPage/SignupForm';
 import './Splash.css'
 
