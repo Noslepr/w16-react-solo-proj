@@ -31,16 +31,17 @@ const PostPhoto = ({ sessionUser, setShowModal }) => {
             <h2 id='post-header'>Fill out photo details:</h2>
             <label>Photo URL:</label>
             <input
-                className='formField'
+                className='formField wide-form'
                 type="text"
                 required
                 onChange={(e) => setPhotoUrl(e.target.value)}
                 value={photoUrl}
             />
             <label>Description:</label>
-            <input
-                className='formField'
+            <textarea
+                className='formField textarea'
                 type="text"
+                rows={5}
                 placeholder='optional'
                 onChange={(e) => setDescription(e.target.value)}
                 value={description}
