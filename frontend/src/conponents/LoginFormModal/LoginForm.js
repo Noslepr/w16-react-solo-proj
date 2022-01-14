@@ -4,11 +4,11 @@ import { useDispatch } from 'react-redux'
 
 import { login } from '../../store/session'
 import { Modal } from '../../context/Modal'
-import SignupForm from '../SignupFormPage'
+import SignupForm from '../SignupFormPage/SignupForm'
 import logo from '../../images/logo-black.png'
 import './LoginForm.css';
 
-const LoginForm = ({ showModal, setShowModal }) => {
+const LoginForm = ({ setSignupModal, setLoginModal }) => {
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -57,19 +57,14 @@ const LoginForm = ({ showModal, setShowModal }) => {
                 value={ password }
             />
             <button className='button'type='submit'>Log in</button>
+            <button className='button cancel' onClick={() => setLoginModal(false)}>Cancel</button>
             <div>Not a member?
-                <span
-                    // onClick={() => {
-                    //     // setShowModal(false);
-                    //     setSwitchModal(true)
-                    // }}
+                <span  className='modal-swap' onClick={() => {
+                    setSignupModal(true)
+                    setLoginModal(false)
+                }}
                 >Sign up here</span>
             </div>
-            {/* {switchModal && (
-                <Modal onClose={() => setSwitchModal(false)}>
-                    <SignupForm />
-                </Modal>
-            )} */}
         </form>
     )
 }
