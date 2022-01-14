@@ -6,7 +6,7 @@ import logo from '../../images/logo-black.png'
 import { signup } from '../../store/session'
 import './SignupForm.css';
 
-const SignupForm = () => {
+const SignupForm = ({ setSignupModal, setLoginModal }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const sessionUser = useSelector((state) => state.session.user);
@@ -73,8 +73,13 @@ const SignupForm = () => {
               required
             />
           <button className='button' type="submit">Sign Up</button>
+          <button className='button cancel' onClick={() => setSignupModal(false)}>Cancel</button>
           <div>Already a member?
-            <span>Log in here.</span>
+          <span className='modal-swap'onClick={() => {
+            setSignupModal(false)
+            setLoginModal(true)
+          }}>
+          Log in here.</span>
           </div>
         </form>
     )
