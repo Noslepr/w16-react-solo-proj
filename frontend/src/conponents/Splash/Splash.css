@@ -36,7 +36,6 @@ h1 {
     }
     25% {
         background-image: url('https://res.cloudinary.com/rock-flickr/image/upload/v1641859586/rakshith-hatwar-XNfyaABCLJk-unsplash_zhyfb3.jpg');
-
         object-fit: cover;
         object-position: center;
     }
