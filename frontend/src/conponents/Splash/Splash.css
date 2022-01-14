@@ -28,6 +28,10 @@ h1 {
     border-radius: 6px;
 }
 
+#splash-signup:hover {
+    background-color: rgb(230, 230, 230);
+}
+
 @keyframes images {
     from {
         background-image: url('https://res.cloudinary.com/rock-flickr/image/upload/v1642115716/photo-1610242576532-7b93286c632a_qpab9a.jpg');

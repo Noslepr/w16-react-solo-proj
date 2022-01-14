@@ -32,6 +32,10 @@ nav {
     cursor: pointer;
 }
 
+.login-btn:hover {
+    color: rgb(230, 230, 230)
+}
+
 .white-btn {
     background-color: white;
     width: 90px;
@@ -95,5 +99,9 @@ nav {
 }
 
 .upload:hover {
-    background-color: rgb(202, 202, 202);
+    background-color: rgb(230, 230, 230);
+}
+
+.white-btn:hover {
+    background-color: rgb(230, 230, 230)
 }
