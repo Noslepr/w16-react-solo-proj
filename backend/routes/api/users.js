@@ -6,7 +6,6 @@ const { setTokenCookie, requireAuth } = require('../../utils/auth')
 const { User } = require('../../db/models')
 const { handleValidationErrors } = require('../../utils/validation')
 
-// validation middleware that includes imported handle validation errors middleware
 const validateSignup = [
     check('email')
         .exists({ checkFalsy: true })
