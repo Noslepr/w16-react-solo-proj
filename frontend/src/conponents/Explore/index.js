@@ -48,7 +48,7 @@ const Explore = ({ sessionUser }) => {
     useEffect(() => {
         dispatch(getPhotos())
     }, [dispatch])
-    
+
     return (
         <>
             {photos &&
