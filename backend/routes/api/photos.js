@@ -12,8 +12,9 @@ const imgEnding = string => {
     string.endsWith('png')) {
         return true
     } else {
-        return false
+        return false;
     }
+    
 }
 
 const photoErrors = [
